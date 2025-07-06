@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>Sceut 香水介紹頁</title>
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fffaf7;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    h2 {
+      color: #8f5c4e;
+      border-left: 5px solid #dcb9a3;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a {
+      color: #8f5c4e;
+      text-decoration: underline;
+    }
+    .insta {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    /* Logo 區塊 */
+    .logo-section {
+      text-align: center;
+    }
+    .logo-section img {
+      max-width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    /* 輪播區塊 */
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel img {
+      width: 100%;
+      max-width: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .carousel-buttons {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .carousel-buttons button {
+      background-color: #e0d4c8;
+      border: none;
+      padding: 8px 12px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Logo 區塊 -->
+    <section class="section logo-section" id="logo">
+      <img src="your-logo.png" alt="Sceut Logo"> <!-- 請替換圖片網址 -->
+      <h2>Sceut</h2>
+      <p>香氣，從這裡開始。</p>
+    </section>
+
+    <!-- 輪播區塊 -->
+    <section class="section" id="gallery">
+      <h2>香水照片展示區</h2>
+      <div class="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <img src="perfume1.jpg" alt="香水1"> <!-- 請替換圖片網址 -->
+          <img src="perfume2.jpg" alt="香水2">
+          <img src="perfume3.jpg" alt="香水3">
+        </div>
+      </div>
+      <div class="carousel-buttons">
+        <button onclick="moveSlide(-1)">← 上一張</button>
+        <button onclick="moveSlide(1)">下一張 →</button>
+      </div>
+    </section>
+
+    <!-- 香水介紹 -->
+    <section class="section" id="fragrance">
+      <h2>香水介紹</h2>
+      <ul>
+        <li><strong>Top Notes:</strong> 白桃、綠蘋果</li>
+        <li><strong>Middle Notes:</strong> 玫瑰、茉莉花</li>
+        <li><strong>Base Notes:</strong> 麝香、琥珀</li>
+      </ul>
+      <p>如初春時節拂過指尖的風，這款香水帶來一縷清新而透明的花果香。香氣輕柔不張揚，揉合白花的純凈與微甜果香，彷彿晨曦中漫步於寧靜花園，腳步輕盈，心也跟著柔軟起來。</p>
+    </section>
+
+    <!-- 品牌介紹 -->
+    <section class="section" id="brand">
+      <h2>CANMAKE 品牌介紹</h2>
+      <p>CANMAKE 源自一句簡單卻充滿力量的信念：「Everyone can make it」，相信每個人都擁有創造美麗的能力。品牌香氛多以花果香調為主，清新甜美，融合柔和花香與果實的活力，散發出如初戀般純淨悸動的迷人氛圍，喚醒心中對美與幸福的悸動。</p>
+    </section>
+
+    <!-- IG -->
+    <section class="section" id="social">
+      <h2>追蹤我們</h2>
+      <p class="insta">Follow us on Instagram: <a href="https://www.instagram.com/sceut_tw" target="_blank">@sceut_tw</a></p>
+    </section>
+
+    <!-- 表單 -->
+    <section class="section" id="feedback">
+      <h2>回饋我們</h2>
+      <p>若您有任何建議或心得，歡迎填寫我們的 <a href="https://forms.gle/KdYS9UmYC8XbVNVs8" target="_blank">回饋表單</a>，讓 Sceut 更加貼近您的感受。</p>
+    </section>
+
+  </div>
+
+  <!-- JS 控制輪播 -->
+  <script>
+    let currentSlide = 0;
+
+    function moveSlide(step) {
+      const track = document.getElementById('carouselTrack');
+      const slides = track.children.length;
+      currentSlide = (currentSlide + step + slides) % slides;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+  </script>
+</body>
+</html>
